@@ -1,11 +1,12 @@
-import Board from './components/Board';
-import './styles/App.css';
+import Board from "./components/Board";
+import Title from "./components/Title";
+import "./styles/App.css";
 
 function App() {
-  console.log("App render")
+  console.log("App render");
   return (
     <div className="App">
-      <h1 className='title'>Tic Tac Toe</h1>
+      <Title />
       <Board />
     </div>
   );
