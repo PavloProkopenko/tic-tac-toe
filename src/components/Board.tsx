@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import Button from "./UI/Button/MyButton"
+import Modal from "./UI/ModalBox/MyModal";
 import { sendMoveToServer } from "../services/sendMoveToServer";
 import { calculateWinner } from "../utils/calculateWinner";
 
@@ -9,6 +10,13 @@ const Board: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(""));
   const [disableClick, setDisableClick] = useState(false);
   const [isGameEnded, setIsGameEnded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
+  const closeModal = () => {
+    setShowModal(false);
+    resetBoard(); // Reset board after close
+  };
 
   const handleClick = async (index: number) => {
     // Base condition
@@ -25,13 +33,15 @@ const Board: React.FC = () => {
     // Calculate if someone wins
     const winner = calculateWinner(newBoard);
     if (winner) {
-      alert(`${winner} wins!`);
+      setModalMessage(`${winner} wins!`);
+      setShowModal(true);
       setIsGameEnded(true)
       return;
     }
   
     if (!newBoard.includes('')) {
-      alert('It\'s a draw!');
+      setModalMessage('It\'s a draw!');
+      setShowModal(true);
       setIsGameEnded(true)
       return;
     }
@@ -47,7 +57,8 @@ const Board: React.FC = () => {
 
     const newWinner = calculateWinner(updatedBoard)
     if (newWinner) {
-      alert(`${newWinner} wins!`);
+      setModalMessage(`${newWinner} wins!`);
+      setShowModal(true);
       setIsGameEnded(true)
       return;
     }
@@ -88,6 +99,7 @@ const Board: React.FC = () => {
         </div>
       </div>
       <Button value="Reset" onClick={resetBoard}/>
+      <Modal show={showModal} message={modalMessage} onClose={closeModal}/>
     </div>
   );
 };

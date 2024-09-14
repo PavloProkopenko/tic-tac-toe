@@ -1,5 +1,4 @@
 import React from "react";
-
 // Making interface for props
 interface CellProps {
   value: string;
