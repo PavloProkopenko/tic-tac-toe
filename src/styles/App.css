@@ -97,16 +97,15 @@
   text-align: center;
 }
 
-/* Адаптивность для небольших экранов */
 @media (max-width: 768px) {
   .title {
-    font-size: 1.5em; /* Уменьшили размер заголовка */
+    font-size: 1.5em; 
   }
 
   .cell {
     height: 80px;
     width: 80px;
-    font-size: 30px; /* Меньше размер шрифта на маленьких экранах */
+    font-size: 30px; 
   }
 
   .custom-button {
@@ -120,16 +119,15 @@
   }
 }
 
-/* Адаптивность для очень малых экранов */
 @media (max-width: 480px) {
   .title {
-    font-size: 1.2em; /* Уменьшили заголовок ещё больше */
+    font-size: 1.2em;
   }
 
   .cell {
     height: 60px;
     width: 60px;
-    font-size: 24px; /* Ещё меньше шрифт для очень малых экранов */
+    font-size: 24px;
   }
 
   .custom-button {

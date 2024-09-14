@@ -20,7 +20,6 @@ const Board: React.FC = () => {
 
   const handleClick = async (index: number) => {
     // Base condition
-    console.log(board)
     if (board[index] !== "" || disableClick) return;
 
     // User click logic
@@ -28,7 +27,6 @@ const Board: React.FC = () => {
     newBoard[index] = "X";
     setBoard(newBoard);
     setDisableClick(true); // Disable click for user until server choose
-    console.log("X render");
 
     // Calculate if someone wins
     const winner = calculateWinner(newBoard);
@@ -53,7 +51,6 @@ const Board: React.FC = () => {
       setBoard(updatedBoard);
       setDisableClick(false) // Enable user click
     }, 500);
-    console.log("O render");
 
     const newWinner = calculateWinner(updatedBoard)
     if (newWinner) {
@@ -78,7 +75,6 @@ const Board: React.FC = () => {
   const renderCell = (index: number) => {
     return <Cell value={board[index]} onClick={() => handleClick(index)} />;
   };
-  console.log("Board render");
   return (
     <div className="board-wrapper">
       <div className="board">
