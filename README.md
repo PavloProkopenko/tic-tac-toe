@@ -5,6 +5,7 @@ This is a simple web application of the "Tic-Tac-Toe" game
 * [React](https://react.dev/): For the frontend of the app.
 * [Node JS](https://nodejs.org/en): For the backend of the app.
 * [Frame Motion](https://www.framer.com/motion/): For animations
+* [Axios](https://axios-http.com/docs/intro): for better readability of HTTP-requests
 
 # Installation
 Simply clone this repository and open LittleLemon folder (android project folder) in android studio. To clone:
